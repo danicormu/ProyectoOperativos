@@ -99,6 +99,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Aleatorio"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAlActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblDuration">
       <Properties>
@@ -109,6 +112,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="PAUSE"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPauseActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

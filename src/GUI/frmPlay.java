@@ -6,14 +6,26 @@
 package GUI;
 
 import rockolaso.Reproductor;
+import java.io.File;
+import java.util.Map;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javazoom.jlgui.basicplayer.BasicController;
+import javazoom.jlgui.basicplayer.BasicPlayer;
+import javazoom.jlgui.basicplayer.BasicPlayerEvent;
+import javazoom.jlgui.basicplayer.BasicPlayerException;
+import javazoom.jlgui.basicplayer.BasicPlayerListener;
 
 /**
  *
  * @author Danicormu
  */
-public class frmPlay extends javax.swing.JFrame {
+public class frmPlay extends javax.swing.JFrame implements BasicPlayerListener{
 
-    Reproductor re = new Reproductor();
+
+    public BasicPlayer player;
+    Reproductor mi_reproductor = new Reproductor();
     int song = 0;
     /**
      * Creates new form frmPlay
@@ -23,7 +35,49 @@ public class frmPlay extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
         setTitle("Now Playing");
+        player = new BasicPlayer();
+        player.addBasicPlayerListener(this);
     }
+    public void Play() throws Exception {
+  player.play();
+ 
+}
+ 
+public void AbrirFichero(String ruta) throws Exception {
+  player.open(new File(ruta));
+}
+ 
+public void Pausa() throws Exception {
+          try {
+            player.pause();
+          
+        } catch (BasicPlayerException ex) {
+            System.out.println(ex);
+        }}
+ 
+public void Continuar() throws Exception {
+  player.resume();
+  
+}
+ 
+public void Stop() throws Exception {
+    
+    player.stop();
+}
+    
+   public void Reproducir(int n){
+try {
+    
+  String nameSongs[]={"Meditacion","AmorClandestino","Believe","Acrossthenight"};  
+ 
+  
+  mi_reproductor.AbrirFichero("C:\\Users\\geo_2\\Desktop\\canciones\\"+nameSongs[n]+".mp3");
+  
+  mi_reproductor.Play();
+} catch (Exception ex) {
+  System.out.println("Error: " + ex.getMessage());
+}
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -66,10 +120,20 @@ public class frmPlay extends javax.swing.JFrame {
         });
 
         btnAl.setText("Aleatorio");
+        btnAl.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlActionPerformed(evt);
+            }
+        });
 
         lblDuration.setText("00:00/00:00");
 
         btnPause.setText("PAUSE");
+        btnPause.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPauseActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -116,18 +180,59 @@ public class frmPlay extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayActionPerformed
-        re.Reproducir(song);
+        Reproducir(song);
     }//GEN-LAST:event_btnPlayActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        song++;
-        re.Reproducir(song);
+       
+        try {
+            song++;
+            if(song>3){
+                
+                song=0;
+            }
+            mi_reproductor.Stop();
+            Reproducir(song);
+        } catch (BasicPlayerException ex) {
+            Logger.getLogger(frmPlay.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(frmPlay.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void btnPrevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrevActionPerformed
         song--;
-        re.Reproducir(song);
+        if(song<0){
+        
+            song=3;
+        }
+        try {
+            mi_reproductor.Stop();
+        } catch (Exception ex) {
+            Logger.getLogger(frmPlay.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Reproducir(song);
     }//GEN-LAST:event_btnPrevActionPerformed
+
+    private void btnPauseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPauseActionPerformed
+       
+        try {
+            mi_reproductor.Pausa();
+            System.out.println("parar");
+        } catch (Exception ex) {
+            //Logger.getLogger(frmPlay.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Deberia parar"+ex);
+        }
+           
+        
+    }//GEN-LAST:event_btnPauseActionPerformed
+
+    private void btnAlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlActionPerformed
+
+Random ram=new Random();
+int n=ram.nextInt(3);// TODO add your handling code here:
+Reproducir(n);
+    }//GEN-LAST:event_btnAlActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,4 +278,24 @@ public class frmPlay extends javax.swing.JFrame {
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JLabel lblDuration;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void opened(Object o, Map map) {
+         System.out.println("rockolaso.Reproductor.progress()"); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void progress(int i, long l, byte[] bytes, Map map) {
+        System.out.println("rockolaso.Reproductor.progress()"); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void stateUpdated(BasicPlayerEvent bpe) {
+         System.out.println("rockolaso.Reproductor.progress()"); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setController(BasicController bc) {
+         System.out.println("rockolaso.Reproductor.progress()"); //To change body of generated methods, choose Tools | Templates.
+    }
 }
