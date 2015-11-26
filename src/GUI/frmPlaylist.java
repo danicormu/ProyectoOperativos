@@ -38,6 +38,7 @@ public class frmPlaylist extends javax.swing.JFrame {
         btnPlay = new javax.swing.JButton();
         greetingTxt = new javax.swing.JLabel();
         greetTxt = new javax.swing.JLabel();
+        greetTxt2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,23 +72,29 @@ public class frmPlaylist extends javax.swing.JFrame {
         greetTxt.setForeground(new java.awt.Color(0, 204, 204));
         greetTxt.setText("jLabel1");
 
+        greetTxt2.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        greetTxt2.setForeground(new java.awt.Color(0, 204, 204));
+        greetTxt2.setText("Bienvenido");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(42, 42, 42)
-                .addComponent(greetingTxt)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(greetTxt2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(greetTxt)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(greetingTxt)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnMyList, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnPlay, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(53, 53, 53))))
         );
@@ -95,7 +102,9 @@ public class frmPlaylist extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(greetTxt)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(greetTxt)
+                    .addComponent(greetTxt2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(greetingTxt)
                 .addGap(20, 20, 20)
@@ -163,7 +172,8 @@ public class frmPlaylist extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMyList;
     private javax.swing.JButton btnPlay;
-    private javax.swing.JLabel greetTxt;
+    public javax.swing.JLabel greetTxt;
+    public javax.swing.JLabel greetTxt2;
     private javax.swing.JLabel greetingTxt;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
