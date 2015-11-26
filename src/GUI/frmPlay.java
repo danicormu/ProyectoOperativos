@@ -5,13 +5,16 @@
  */
 package GUI;
 
+import rockolaso.Reproductor;
+
 /**
  *
  * @author Danicormu
  */
 public class frmPlay extends javax.swing.JFrame {
 
-    
+    Reproductor re = new Reproductor();
+    int song = 0;
     /**
      * Creates new form frmPlay
      */
@@ -37,18 +40,36 @@ public class frmPlay extends javax.swing.JFrame {
         jProgressBar1 = new javax.swing.JProgressBar();
         btnAl = new javax.swing.JButton();
         lblDuration = new javax.swing.JLabel();
+        btnPause = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnPrev.setText("PREVIOUS");
+        btnPrev.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrevActionPerformed(evt);
+            }
+        });
 
         btnPlay.setText("PLAY");
+        btnPlay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPlayActionPerformed(evt);
+            }
+        });
 
         btnNext.setText("NEXT");
+        btnNext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNextActionPerformed(evt);
+            }
+        });
 
         btnAl.setText("Aleatorio");
 
         lblDuration.setText("00:00/00:00");
+
+        btnPause.setText("PAUSE");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -62,8 +83,10 @@ public class frmPlay extends javax.swing.JFrame {
                     .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnPrev)
-                        .addGap(57, 57, 57)
+                        .addGap(23, 23, 23)
                         .addComponent(btnPlay)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnPause)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnNext)))
                 .addContainerGap(133, Short.MAX_VALUE))
@@ -84,12 +107,27 @@ public class frmPlay extends javax.swing.JFrame {
                     .addComponent(btnPrev)
                     .addComponent(btnPlay)
                     .addComponent(btnNext)
-                    .addComponent(btnAl))
+                    .addComponent(btnAl)
+                    .addComponent(btnPause))
                 .addGap(67, 67, 67))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlayActionPerformed
+        re.Reproducir(song);
+    }//GEN-LAST:event_btnPlayActionPerformed
+
+    private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
+        song++;
+        re.Reproducir(song);
+    }//GEN-LAST:event_btnNextActionPerformed
+
+    private void btnPrevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrevActionPerformed
+        song--;
+        re.Reproducir(song);
+    }//GEN-LAST:event_btnPrevActionPerformed
 
     /**
      * @param args the command line arguments
@@ -129,6 +167,7 @@ public class frmPlay extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAl;
     private javax.swing.JButton btnNext;
+    private javax.swing.JButton btnPause;
     private javax.swing.JButton btnPlay;
     private javax.swing.JButton btnPrev;
     private javax.swing.JProgressBar jProgressBar1;

@@ -31,8 +31,10 @@
                   <Component id="jProgressBar1" min="-2" pref="335" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Component id="btnPrev" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       <Component id="btnPlay" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btnPause" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="btnNext" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -59,6 +61,7 @@
                   <Component id="btnPlay" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnNext" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnAl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnPause" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
           </Group>
@@ -70,16 +73,25 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="PREVIOUS"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPrevActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnPlay">
       <Properties>
         <Property name="text" type="java.lang.String" value="PLAY"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPlayActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnNext">
       <Properties>
         <Property name="text" type="java.lang.String" value="NEXT"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNextActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JProgressBar" name="jProgressBar1">
     </Component>
@@ -91,6 +103,11 @@
     <Component class="javax.swing.JLabel" name="lblDuration">
       <Properties>
         <Property name="text" type="java.lang.String" value="00:00/00:00"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnPause">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="PAUSE"/>
       </Properties>
     </Component>
   </SubComponents>
