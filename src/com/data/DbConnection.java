@@ -15,7 +15,7 @@ public class DbConnection {
             Class.forName("com.mysql.jdbc.Driver");
             String server = "jdbc:mysql://localhost/rockoladb";
             String dbUser="root";
-            String password="LinkinPark";
+            String password="corrales";
             con= DriverManager.getConnection(server,dbUser,password);
         }catch(Exception e){
             e.printStackTrace();

@@ -16,7 +16,7 @@ public class UserData {
     public boolean addUser(User user) throws SQLException{
         boolean flag = false;
         Connection dbCon= null;
-        String query ="insert into rockoladb.usuario nombreUsuario values (?);";
+        String query ="insert into rockoladb.usuario (nombreUsuario) values (?);";
         try {
             dbCon = con.getCon();
             PreparedStatement stm = dbCon.prepareStatement(query);

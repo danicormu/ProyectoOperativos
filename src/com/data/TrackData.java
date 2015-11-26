@@ -36,15 +36,16 @@ public class TrackData {
        return list; 
     }
     
-    public boolean addSongToPlayList(Track track) throws SQLException{
+    public boolean addSongToPlayList(Track track, String name) throws SQLException{
         boolean flag = false;
         Connection dbConn = null;
-        String query = "insert into rockoladb.playlist (name,usuario_idUsuario) values (?,?);";
+        int id = data.selectUserId(name);
+        String query = "insert into rockoladb.playlist (nombreCancion,usuario_idUsuario) values (?,?);";
         try {
             dbConn = con.getCon();
             PreparedStatement stm = dbConn.prepareStatement(query);
             stm.setString(1, track.getName());
-            stm.setInt(2, track.getUserID());
+            stm.setInt(2, id);
             stm.executeUpdate();
             flag=true;
             stm.close();

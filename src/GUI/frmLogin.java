@@ -16,6 +16,9 @@ public class frmLogin extends javax.swing.JFrame {
      */
     public frmLogin() {
         initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setTitle("Login");
     }
 
     /**
@@ -67,6 +70,8 @@ public class frmLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         frmPlaylist fr = new frmPlaylist();
+        fr.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnLoginActionPerformed
 
     /**

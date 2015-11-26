@@ -16,6 +16,9 @@ public class frmMyPlaylist extends javax.swing.JFrame {
      */
     public frmMyPlaylist() {
         initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setTitle("My playlist");
     }
 
     /**

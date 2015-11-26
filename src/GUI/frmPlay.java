@@ -11,11 +11,15 @@ package GUI;
  */
 public class frmPlay extends javax.swing.JFrame {
 
+    
     /**
      * Creates new form frmPlay
      */
     public frmPlay() {
         initComponents();
+        setLocationRelativeTo(null);
+        setResizable(false);
+        setTitle("Now Playing");
     }
 
     /**
@@ -31,6 +35,8 @@ public class frmPlay extends javax.swing.JFrame {
         btnPlay = new javax.swing.JButton();
         btnNext = new javax.swing.JButton();
         jProgressBar1 = new javax.swing.JProgressBar();
+        btnAl = new javax.swing.JButton();
+        lblDuration = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -40,32 +46,45 @@ public class frmPlay extends javax.swing.JFrame {
 
         btnNext.setText("NEXT");
 
+        btnAl.setText("Aleatorio");
+
+        lblDuration.setText("00:00/00:00");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(138, 138, 138)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(31, 31, 31)
+                .addComponent(btnAl)
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnPrev)
                         .addGap(57, 57, 57)
                         .addComponent(btnPlay)
-                        .addGap(60, 60, 60)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnNext)))
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addContainerGap(133, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblDuration, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(257, 257, 257))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(267, Short.MAX_VALUE)
+                .addContainerGap(239, Short.MAX_VALUE)
+                .addComponent(lblDuration, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnPrev)
                     .addComponent(btnPlay)
-                    .addComponent(btnNext))
+                    .addComponent(btnNext)
+                    .addComponent(btnAl))
                 .addGap(67, 67, 67))
         );
 
@@ -108,9 +127,11 @@ public class frmPlay extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAl;
     private javax.swing.JButton btnNext;
     private javax.swing.JButton btnPlay;
     private javax.swing.JButton btnPrev;
     private javax.swing.JProgressBar jProgressBar1;
+    private javax.swing.JLabel lblDuration;
     // End of variables declaration//GEN-END:variables
 }
