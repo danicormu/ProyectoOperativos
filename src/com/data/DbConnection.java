@@ -13,7 +13,7 @@ public class DbConnection {
         Connection con = null;
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            String server = "jdbc:mysql://localhost/rockoladb";
+            String server = "jdbc:mysql://10.18.15.254/rockoladb";
             String dbUser="root";
             String password="corrales";
             con= DriverManager.getConnection(server,dbUser,password);

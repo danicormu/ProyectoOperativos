@@ -27,19 +27,6 @@ public class RockolaSO {
         // TODO code application logic here
         frmLogin fr = new frmLogin();
         fr.setVisible(true);
-        DbConnection con = new DbConnection();
-        con.getCon();
-        UserData data = new UserData();
-        User user = new User(1, "mairon");
-        Track track = new Track(1, "Cancion 1");
-        //System.out.println(data.selectUserId("efdgfd"));
-        TrackData tdata= new TrackData();
-         if(tdata.addSongToPlayList(track, "mairon")){
-             System.out.println("lo hice");
-         }
-            
-       // for(int i =0; i<4; i++)
-       //     System.out.println(tdata.selectPlayList("efdgfd").remove(i).getName());
     }
     
 }

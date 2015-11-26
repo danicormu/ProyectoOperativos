@@ -5,6 +5,9 @@
  */
 package GUI;
 
+import com.data.UserData;
+import com.domain.User;
+
 /**
  *
  * @author Danicormu
@@ -14,6 +17,8 @@ public class frmLogin extends javax.swing.JFrame {
     /**
      * Creates new form frmLogin
      */
+    
+    public String name;
     public frmLogin() {
         initComponents();
         setLocationRelativeTo(null);
@@ -68,8 +73,15 @@ public class frmLogin extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-        
+        UserData data = new UserData();
+        User user = new User(1,txtName.getText());
+        try{
+            data.addUser(user);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
         frmPlaylist fr = new frmPlaylist();
+        name = txtName.getText();
         fr.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnLoginActionPerformed
@@ -111,6 +123,6 @@ public class frmLogin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
-    private javax.swing.JTextField txtName;
+    public javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
 }
